@@ -11,7 +11,7 @@
 多态
       1、我们把不同的子类对象都当做父类来看，屏蔽所有子类之间的差异，写出通用代码，做出以适应需求的不断改变。
 案例： 使用多态的思想计算圆形、矩形的面积和周长
-      真鸭子嘎嘎叫，橡皮鸭子唧唧叫，木头鸭子不会叫
+      真鸭子嘎嘎叫，橡皮鸭子唧唧叫，木头鸭子不会叫,都会游泳
 
 面向对象五大原则
 单一职责原则
@@ -36,3 +36,64 @@
     客户端不应该依赖那些它不需要的接口。
     代码冗余、臃肿
     
+20190814  
+使用多态的思想计算圆形、矩形的面积和周长
+    抽象Shape类是父类:GetArea()，GetPerimeter()抽象方法，抽象成员只能存在抽象类中
+        Circle类 继承Shape，override GetArea()，GetPerimeter()并写其具体实现代码，
+        Square类 继承Shape，override GetArea()，GetPerimeter()并写其具体实现代码，
+真鸭子嘎嘎叫，橡皮鸭子唧唧叫，木头鸭子不会叫,都会游泳
+    Duck类是父类，实现Swim()方法
+    IBark叫是接口，声明Bark()方法
+    RealDuck类继承Duck,IBark,并实现IBark接口中的Bark()方法
+    XPDuck类继承Duck,IBark,并实现IBark接口中的Bark()方法
+    MDuck类继承Duck
+
+简单工厂模式
+银行卡，饭卡，门卡，胸卡
+
+    Card类是抽象父类，声明DoSomething()抽象方法
+    BankCard类继承Card类，override DoSomething()方法并实现其对应的代码
+    FoodCard类继承Card类，override DoSomething()方法并实现
+    XCard类继承Card类，override DoSomething()方法并实现其对应的代码
+    DoorCard类继承Card类，override DoSomething()方法并实现其对应的代码
+    Factory工厂类，GetCard()返回Card类，根据参数input switch case 判断返回对应的 new ..Card()对象
+    在Main函数中调用时 Card card=Factory.GetCard(input);
+
+Public static T GetPerson<T>() where T:Person, new()//约束 new():代表必须包含无参数
+
+Form_Load 程序加载时就会运行。
+代码动态创建控件，Button saveBtn=new button()之后，需要写this.Controls.Add(saveBtn); 
+            事件 btn.click+=btn_Click; 然后写btn_Click()事件方法
+            
+Timer timer=new Timer();
+timer.Interval=100;
+timer.Tick+=(s,z)=>{执行的代码}；
+timer.Start();
+
+从代码优化的角度看，控件的代码应该是手动创建的，如果是拖拽控件，系统会自动生成不会用到的属性的相关代码
+
+FileStream
+ProgressBar 中的value要在min，max值之间，所以在使用之前，需要设置其最大值
+
+
+OpenFileDialog ofd, ofd.Title; ofd.Filter;ofd.ShowDialog(); 选取到的文件的文件名是ofd.FileName;
+SaveFileDialog sfd, sfd.InitialDirectory 初始化保存的路径；sfd.title,sfd.ShowDialog(); sfd.FileName;
+using(FileStream fsRead=new FileStream(txtSource.text,FileMode.Open,FileAcess.Read)){
+progressBar1.Maximum=(int)fsRead.Length();//能拿到当前读取的文件的总字节的长度
+using(FileStream fsWrite=new FileStream(txtTarget.Text,FileMode.OpenOrCreate,FileAcess.Write)){
+    byte[] buffer=new byte[1024*1024*2];//创建缓冲区
+    //通过循环不停的读取和写入
+    while(true){
+       int r=fsRead.Read(buffer,0,buffer.Length);
+       //读完了
+       if(r<=0){
+        break;
+       }
+       progressBar1.Value+=(int)fsWrite.Length;
+       //读一次写一次
+       fsWrite.Write(buffer,0,r);       
+    }
+}
+
+
+
