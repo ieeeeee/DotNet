@@ -79,7 +79,7 @@ ProgressBar 中的value要在min，max值之间，所以在使用之前，需要
 OpenFileDialog ofd, ofd.Title; ofd.Filter;ofd.ShowDialog(); 选取到的文件的文件名是ofd.FileName;
 SaveFileDialog sfd, sfd.InitialDirectory 初始化保存的路径；sfd.title,sfd.ShowDialog(); sfd.FileName;
 using(FileStream fsRead=new FileStream(txtSource.text,FileMode.Open,FileAcess.Read)){
-progressBar1.Maximum=(int)fsRead.Length();//能拿到当前读取的文件的总字节的长度
+progressBar1.Maximum=(int)fsRead.Length();//能拿到当前读取的文件的总字节的长度,要注意不能超过int的20多亿长度，可以除以相应的倍数。
 using(FileStream fsWrite=new FileStream(txtTarget.Text,FileMode.OpenOrCreate,FileAcess.Write)){
     byte[] buffer=new byte[1024*1024*2];//创建缓冲区
     //通过循环不停的读取和写入
@@ -89,11 +89,19 @@ using(FileStream fsWrite=new FileStream(txtTarget.Text,FileMode.OpenOrCreate,Fil
        if(r<=0){
         break;
        }
-       progressBar1.Value+=(int)fsWrite.Length;
        //读一次写一次
+       progressBar1.Value+=r; //此处如果用(int)fsWrite.Length,最后一次fsWrite可能没有2M，会报超出范围的错误
        fsWrite.Write(buffer,0,r);       
     }
 }
+
+
+集合
+    泛型集合 List<T> 类型是固定的，但长度是可变的
+            Dictionary<Tkey,Tvalue>
+            案列：英汉翻译：将英文翻译成中文
+                 日期翻译：编写一个函数进行日期转换，将输入的中文日期转换为阿拉伯数字日期
+    非泛型集合（会发生装箱和拆箱）
 
 
 
