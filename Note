@@ -115,11 +115,26 @@ using(FileStream fsWrite=new FileStream(txtTarget.Text,FileMode.OpenOrCreate,Fil
 File类 （静态类）和FileInfo类 （实例类）
 Directory （静态类） 和 DirectoryInfo （实例类）
 实例类和静态类的区别是
-静态类（全局，在整个项目中都可以访问到）好处是：调用简单，缺点：始终消耗内存
-
+静态类（全局，在整个项目中都可以访问到）好处是：调用简单，缺点：始终消耗内存，FileInfo类只要代码执行完，内存就会释放，而file类不会释放，
+    file类会在最后释放 。如果只需要对文件做一次操作那么就使用File类，如果需要对文件进行多次操作，用FileInfo,从性能来考虑。
+    FileInfo在使用之前，CPU只做一次安全检查。
+    静态成员耗资源，能不使用静态成员就不使用。
+    
+   
 File 类
 Exist(),Delete(),Move(),Copy(),Creater(),ReadAll..
 FileInfo是File类的一个实例类，就是一个对象
 FileInfo fInfo=new FileInfo(@"文件的操作路径")
+FileStream fsReas=fInfo.OpenRead();(不同方法返回的类型不一样FileStream,StreamReader）
+byte[] buffer=new byte[1024*1024];
+int r=fsRead.Read(buffer,0,buffer.Length);
+string contens=Encoding.Default.GetString(buffer,0,r);
+
+案例：将工资文件中所有工资翻倍，并写入到源文件
+string[] lines=File.ReadAllLines("工资.txt"，Encoding.Default);
 
 
+Directory （静态类） 和 DirectoryInfo （实例类）
+资源管理器
+    DirectoryInfo dInfo=new DirectoryInfo(地址)；
+    获取当前文件夹下所有文件夹的路径 dInfo.GetDirectories();
