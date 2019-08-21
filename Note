@@ -95,13 +95,31 @@ using(FileStream fsWrite=new FileStream(txtTarget.Text,FileMode.OpenOrCreate,Fil
     }
 }
 
-
+20190821
 集合
     泛型集合 List<T> 类型是固定的，但长度是可变的
-            Dictionary<Tkey,Tvalue>
+            Dictionary<Tkey,Tvalue> 要思考键值的类型
+            给集合添加数据
             案列：英汉翻译：将英文翻译成中文
                  日期翻译：编写一个函数进行日期转换，将输入的中文日期转换为阿拉伯数字日期
+                 将数字中文存为键，数字存为值从零到九存进字典里，年月日十做特殊处理 比如二零一零年十二月十二日
+                 1 十在日的情况，月十日，月十一日，月二十一日
+                 2 十在月的情况，年十月，年十一月
+                string[] temp=str.split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
+                dic.Add(temp[i][0],temp[i][1]);
     非泛型集合（会发生装箱和拆箱）
+                将数字中文存为键，数字存为值从零到九存进字典里
+                string[] temp=str.split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
+                dic.Add(temp[i][0],temp[i][1]);
+                
+File类 （静态类）和FileInfo类 （实例类）
+Directory （静态类） 和 DirectoryInfo （实例类）
+实例类和静态类的区别是
+静态类（全局，在整个项目中都可以访问到）好处是：调用简单，缺点：始终消耗内存
 
+File 类
+Exist(),Delete(),Move(),Copy(),Creater(),ReadAll..
+FileInfo是File类的一个实例类，就是一个对象
+FileInfo fInfo=new FileInfo(@"文件的操作路径")
 
 
