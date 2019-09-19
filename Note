@@ -138,3 +138,19 @@ Directory （静态类） 和 DirectoryInfo （实例类）
 资源管理器
     DirectoryInfo dInfo=new DirectoryInfo(地址)；
     获取当前文件夹下所有文件夹的路径 dInfo.GetDirectories();
+    
+C# 是一个简单的、通用的、面向对象的编程语言。
+
+Mono是为该语言开发编译器和运行时的免费开源项目的名称。Mono 是 .NET 框架的一个开源版本，它包含了一个 C# 编译器，且可运行于多种操作系统上，比如各种版本的 Linux 和 Mac OS。
+
+C＃是为公共语言基础结构（CLI）设计的编程语言之一。
+
+公共语言基础结构（CLI）Common Language Infrastructure：定义了构成.NET Framework基础结构的可执行码以及代码的运行时环境的规范。CLI是一种规范，而CLR则是对这种规范的一个实现。
+
+CLR，公共语言运行时（Common Language Runtime）:操作系统为CLR提供了运行环境，使用.NET构建的程序又运行在CLR之上，CLR包含.NET运行引擎和符合CLI的类库。通过.NET平台构建的程序都基于CLR基础类库来实现，并且运行在CLR提供的运行引擎之上。
+
+您可以将运行库看作一个在执行时管理代码的代理，它提供内存管理、线程管理和远程处理等核心服务，并且还强制实施严格的类型安全以及可提高安全性和可靠性的其他形式的代码准确性。
+
+以运行库为目标的代码称为托管代码，而不以运行库为目标的代码称为非托管代码。
+
+源代码 通过编译器如VS 把代码翻译成中间代码（CIL，公共中间语言（Common Intermediate Language））再通过CLR中的JIT编译器转换为特定的CPU代码。
