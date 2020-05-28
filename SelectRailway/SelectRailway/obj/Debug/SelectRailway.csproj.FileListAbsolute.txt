@@ -1,0 +1,9 @@
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\bin\Debug\SelectRailway.exe.config
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\bin\Debug\SelectRailway.exe
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\bin\Debug\SelectRailway.pdb
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\obj\Debug\SelectRailway.csprojResolveAssemblyReference.cache
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\obj\Debug\SelectRailway.Form1.resources
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\obj\Debug\SelectRailway.Properties.Resources.resources
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\obj\Debug\SelectRailway.csproj.GenerateResource.Cache
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\obj\Debug\SelectRailway.exe
+C:\Users\88882216\Documents\mine\Dev\SelectRailway\SelectRailway\obj\Debug\SelectRailway.pdb
